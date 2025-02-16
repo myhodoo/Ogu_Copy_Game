@@ -22,16 +22,21 @@ public class PlayerMove : MonoBehaviour
         //    xx = -1;
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            xx = 1;
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             xx = -1;
 
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            xx = 1;
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            yy = 1;
+
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            yy = -1;
 
         Vector2 pos = transform.position;
         pos.x += xx * MoveSpeed * Time.deltaTime;
         pos.y += yy * MoveSpeed * Time.deltaTime;
-
+        
         this.transform.position = pos;
     }
 
