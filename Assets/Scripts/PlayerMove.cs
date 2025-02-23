@@ -26,6 +26,11 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             xx = -1;
+            m_Animator.SetBool("LeftMove", true);
+        }
+        else
+        {
+            m_Animator.SetBool("LeftMove", false);
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -41,6 +46,11 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             yy = 1;
+            m_Animator.SetBool("UpMove", true);
+        }
+        else
+        {
+            m_Animator.SetBool("UpMove", false);
         }
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
