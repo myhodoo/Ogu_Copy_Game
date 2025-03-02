@@ -1,6 +1,17 @@
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+
+
+public enum E_Direction
+{
+    Up,
+    Down, 
+    Left, 
+    Right
+}
+
+
+public class PlayerMove_3 : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -10,6 +21,9 @@ public class PlayerMove : MonoBehaviour
 
     public float MoveSpeed = 5f;
     public Animator m_Animator = null;
+
+
+    public E_Direction m_Direction = E_Direction.Down;
 
     void Move1()
     {
@@ -22,26 +36,48 @@ public class PlayerMove : MonoBehaviour
         //if (xx < 0)
         //    xx = -1;
 
-        
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+
+        if (  Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow )
+            )
+        {
+            xx = 1;
+            if(m_Direction != E_Direction.Right)
+            {
+                m_Animator.SetBool("RightMove", true);
+                m_Direction = E_Direction.Right;
+            }
+            else
+            {
+                m_Animator.SetBool("RightMove", false);
+            }
+                
+        }
+        else
+        {
+            m_Animator.SetBool("RightMove", false);
+        }
+
+
+        if (  Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) )
         {
             xx = -1;
-            m_Animator.SetBool("LeftMove", true);
+            if(m_Direction != E_Direction.Left)
+            {
+                m_Animator.SetBool("LeftMove", true);
+                m_Direction = E_Direction.Left;
+            }
+            else
+            {
+                m_Animator.SetBool("LeftMove", false);
+            }
+
         }
         else
         {
             m_Animator.SetBool("LeftMove", false);
         }
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            xx = 1;
-            m_Animator.SetBool("RightMove", true);
-        }
-        else
-        {
-            m_Animator.SetBool("RightMove", false);
-        }
+        
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
