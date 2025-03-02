@@ -116,7 +116,7 @@ public class PlayerMove_3 : MonoBehaviour
         this.transform.position = pos;
 
 
-        
+        GetComponent<Rigidbody2D>().MovePosition(pos);
 
     }
 

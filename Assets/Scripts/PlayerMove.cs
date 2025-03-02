@@ -79,10 +79,19 @@ public class PlayerMove : MonoBehaviour
         
         this.transform.position = pos;
 
-
-        
-
+        GetComponent<Rigidbody2D>().MovePosition(pos);
     }
+
+    public LayerMask avb;
+
+    void EndLineAttack()
+    {
+        //if()
+        //{
+            
+        //}
+    }
+
 
     void Update()
     {
