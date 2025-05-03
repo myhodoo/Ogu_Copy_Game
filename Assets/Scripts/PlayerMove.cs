@@ -10,17 +10,11 @@ public class PlayerMove : MonoBehaviour
 
     public float MoveSpeed = 5f;
     public Animator m_Animator = null;
-
+    public GameObject Character;
     void Move1()
     {
         float xx = Input.GetAxis("Horizontal");
         float yy = Input.GetAxis("Vertical");
-
-        //if (xx > 0)
-        //    xx = 1;
-
-        //if (xx < 0)
-        //    xx = -1;
 
         
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -70,6 +64,10 @@ public class PlayerMove : MonoBehaviour
         else
         {
             m_Animator.SetFloat("MoveVal", 0f);
+        }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+
         }
 
 
