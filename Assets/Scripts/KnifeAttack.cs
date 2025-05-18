@@ -8,17 +8,18 @@ public class KnifeAttack : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log($"{this.gameObject.tag}, {collision.gameObject.tag}");
+    //    if (collision.gameObject.tag == "potion")
+    //    {
+    //        spriteRenderer.sprite = ChangeSprite;
+    //    }
+    //}
+
 
     public SpriteRenderer spriteRenderer;
     public Sprite ChangeSprite;
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log($"{this.gameObject.tag}, {collision.gameObject.tag}");
-        if (collision.gameObject.tag == "potion")
-        {
-            spriteRenderer.sprite = ChangeSprite;
-        }
-    }
 
     public bool isTrigger = false;
     private void OnTriggerEnter2D(Collider2D collision)

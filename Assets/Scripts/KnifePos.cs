@@ -28,6 +28,11 @@ public class KnifePos : MonoBehaviour
             m_Animator.SetBool("RightHit", true);
             Knife.transform.localPosition = new Vector3(0.150000006f, 0, 0.07f);
         }
+
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            Knife.SetActive(false);
+        }
       
         else
         {
