@@ -20,6 +20,7 @@ public class KnifeAttack : MonoBehaviour
         }
     }
 
+    public bool isTrigger = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log($"Æ®¸®°Å {this.gameObject.tag}, {collision.gameObject.tag}");
@@ -27,6 +28,9 @@ public class KnifeAttack : MonoBehaviour
         {
             collision.GetComponent<SpriteRenderer>().sprite = ChangeSprite;
             //spriteRenderer.sprite = ChangeSprite;
+            collision.transform.localScale = new Vector3(5f, 5f, 4.32229996f);
+            collision.gameObject.layer = 4;
+            collision.isTrigger = true;
         }
     }
 
