@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         m_Animator = GetComponent<Animator>();
+        
     }
 
     public float MoveSpeed = 5f;
@@ -65,10 +66,6 @@ public class PlayerMove : MonoBehaviour
         {
             m_Animator.SetFloat("MoveVal", 0f);
         }
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-
-        }
 
 
         Vector2 pos = transform.position;
@@ -80,19 +77,15 @@ public class PlayerMove : MonoBehaviour
         GetComponent<Rigidbody2D>().MovePosition(pos);
     }
 
-    public LayerMask avb;
 
-    void EndLineAttack()
-    {
-        //if()
-        //{
-            
-        //}
-    }
+
+   
+   
 
 
     void Update()
     {
         Move1();
+       
     }
 }
