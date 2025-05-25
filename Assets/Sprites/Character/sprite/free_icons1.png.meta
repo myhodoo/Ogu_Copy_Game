@@ -112,10 +112,10 @@ TextureImporter:
       name: free_icons1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
+        x: 1
+        y: 48
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: free_icons1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 48
+        x: 17
+        y: 48
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,10 +156,10 @@ TextureImporter:
       name: free_icons1_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 31
-        width: 16
-        height: 33
+        x: 33
+        y: 48
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,9 +179,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 48
-        height: 15
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,6 +192,182 @@ TextureImporter:
       bones: []
       spriteID: 5ff18d06444bd1ef0800000000000000
       internalID: -135754207975694347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f44ce53a17e2b0448d013ee04ef1518
+      internalID: -727807804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_5
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 32
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750a56c027f37154fa30f6b7b5d3a164
+      internalID: -662283591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8c37d0551e83c40a297a8dd98ff606
+      internalID: -367421410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 17
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d929ec7d48b70a4469f5378002b01a1b
+      internalID: 1418452259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 17
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c152385559d761a42ba0b3af6c00f77e
+      internalID: 305535981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca77f4c2399d3649b0f47784bad93ae
+      internalID: -1766808312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f97afda1201284d818dc971103a9e6
+      internalID: -151988408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: free_icons1_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61dceb6e2e67085438dd393adaad0ffd
+      internalID: -842084818
       vertices: []
       indices: 
       edges: []
@@ -210,8 +386,16 @@ TextureImporter:
     nameFileIdTable:
       free_icons1_0: -8372458986327391770
       free_icons1_1: 7858750494584571192
+      free_icons1_10: -151988408
+      free_icons1_11: -842084818
       free_icons1_2: 4746871752945577466
       free_icons1_3: -135754207975694347
+      free_icons1_4: -727807804
+      free_icons1_5: -662283591
+      free_icons1_6: -367421410
+      free_icons1_7: 1418452259
+      free_icons1_8: 305535981
+      free_icons1_9: -1766808312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

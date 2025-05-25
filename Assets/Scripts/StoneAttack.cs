@@ -16,6 +16,9 @@ public class StoneAttack : MonoBehaviour
     public Vector3 ArrivePos;
     public float speed = 3f;
 
+    //던지는 효과를 나타낼 때 scale을 커지고 작게 만들기
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "potion")
@@ -38,7 +41,7 @@ public class StoneAttack : MonoBehaviour
             {
                 //this.rb.isKinematic = false;
 
-                this.transform.position = Vector3.MoveTowards(this.transform.position, ArrivePos, speed * Time.deltaTime);
+                this.GetComponent<Collider2D>().isTrigger = true;
                 if (  this.transform.position == ArrivePos)
                 {
                     Destroy(this.gameObject);
