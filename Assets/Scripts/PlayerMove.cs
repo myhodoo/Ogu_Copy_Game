@@ -12,6 +12,8 @@ public class PlayerMove : MonoBehaviour
     public float MoveSpeed = 5f;
     public Animator m_Animator = null;
     public GameObject Character;
+
+
     void Move1()
     {
         float xx = Input.GetAxis("Horizontal");
@@ -22,6 +24,7 @@ public class PlayerMove : MonoBehaviour
         {
             xx = -1;
             m_Animator.SetBool("LeftMove", true);
+
         }
         else
         {
@@ -32,6 +35,7 @@ public class PlayerMove : MonoBehaviour
         {
             xx = 1;
             m_Animator.SetBool("RightMove", true);
+            
         }
         else
         {
