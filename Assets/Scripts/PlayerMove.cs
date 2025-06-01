@@ -86,7 +86,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log($"tta : {this.gameObject.tag}, {collision.gameObject.tag}");
+        //Debug.Log($"tta : {this.gameObject.tag}, {collision.gameObject.tag}");
         
     }
 

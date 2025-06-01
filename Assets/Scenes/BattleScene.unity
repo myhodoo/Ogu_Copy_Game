@@ -863,37 +863,6 @@ Transform:
   - {fileID: 835614492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &728542831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 728542832}
-  m_Layer: 0
-  m_Name: StoneArrive
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &728542832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728542831}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 2.75, z: 1.2370771}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792250497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 835614491}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.66, y: -3.32, z: -5.2}
+  m_LocalPosition: {x: 3.56, y: -2.3, z: -5.2}
   m_LocalScale: {x: 3.5448291, y: 3.5448291, z: 3.5448291}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1206,7 +1175,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 835614493}
   ChangeStone: {fileID: -8283354890577564409, guid: 7618001a988453840847076ca4ebc39f, type: 3}
   Stonehole: {fileID: 2145325030}
-  ArrivePos: {x: 0, y: 0, z: 0}
   speed: 3
   m_ISAttack: 0
 --- !u!1 &1014313468
@@ -2589,7 +2557,7 @@ GameObject:
   m_Layer: 9
   m_Name: StoneHole
   m_TagString: Catapult
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2602,7 +2570,7 @@ Transform:
   m_GameObject: {fileID: 2145325029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2666,7 +2634,6 @@ SceneRoots:
   - {fileID: 792250499}
   - {fileID: 1640151365}
   - {fileID: 637408381}
-  - {fileID: 728542832}
   - {fileID: 1956946072}
   - {fileID: 621065869}
   - {fileID: 321993817}

@@ -8,6 +8,7 @@ TagManager:
   - knife
   - potion
   - Catapult
+  - StoneArrive
   layers:
   - Default
   - TransparentFX
