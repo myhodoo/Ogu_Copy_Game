@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class StoneAttack : MonoBehaviour
 {
+    //코르틴 사용해서 돌 포물선 그리면서 이동하는 것 처럼 만들기
+
+
+
     Rigidbody2D rb;
     void Start()
     {
