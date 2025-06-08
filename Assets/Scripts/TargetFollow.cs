@@ -11,12 +11,21 @@ public class TargetFollow : MonoBehaviour
     public float time = 0;
 
 
+
+    public GameObject hitpunch;
+    public float DownSpeed = 1f;
+    public LayerMask PlayerHitMask;
+
+
     void Start()
     {
         targetpos = GameObject.FindAnyObjectByType<PlayerMove>();
         StartCoroutine( time_increase() );
 
         StartCoroutine(CursorFollow_Coroutine());
+
+        
+
     }
 
 
@@ -37,8 +46,13 @@ public class TargetFollow : MonoBehaviour
         
     }
 
+
+    [SerializeField]
+    GameObject hitpunchclone = null;
+
     IEnumerator CursorFollow_Coroutine()
     {
+
         cursor.SetActive(true);
 
         while (m_ISFollow)
@@ -50,24 +64,55 @@ public class TargetFollow : MonoBehaviour
 
 
         // 돌덩어리 떨어지도록 만들기
-        while(true)
-        {
+        hitpunchclone = GameObject.Instantiate(hitpunch);
+        hitpunchclone.gameObject.SetActive(true);
 
+        Vector3 temppos = transform.position;
+        temppos.y += 4f;
+        hitpunchclone.transform.position = temppos;
+
+
+        if (hitpunchclone.transform.position.x < 0)
+        {
+            hitpunch.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        if (hitpunchclone.transform.position.x > 0)
+        {
+            hitpunch.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        // 떨어지도록 하기
+        while (true)
+        {
+           
+            hitpunchclone.transform.Translate(0f, DownSpeed * Time.deltaTime, 0f);
             yield return null;
 
-            // 예제코드
-            yield return new WaitForSecondsRealtime(2f); //낙하지점이 바닥에 닿아서 유지되는 시간
-
-            if (true)
+            if( this.transform.position.y >= hitpunchclone.transform.position.y )
             {
                 break;
             }
         }
 
-        //yield return new WaitForSecondsRealtime(2.5f);
-        cursor.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(1f);
+        BoxCollider2D boxcol = GetComponent<BoxCollider2D>();
+        // 충돌판정
+        Collider2D hitcol = Physics2D.OverlapBox(this.transform.position, boxcol.size, 0f, PlayerHitMask);
+        if (hitcol != null)
+        {
+            Debug.Log("플레이어 데미지 줌");
+        }
+
+
+        //yield return new WaitForSecondsRealtime(2.5f);
+        //cursor.SetActive(false);
+        cursor.GetComponent<SpriteRenderer>().enabled = false;
+
+        //yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
+
+        GameObject.Destroy(hitpunchclone.gameObject );
         GameObject.Destroy(gameObject);
     }
 
