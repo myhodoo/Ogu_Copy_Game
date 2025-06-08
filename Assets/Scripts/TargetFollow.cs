@@ -95,13 +95,15 @@ public class TargetFollow : MonoBehaviour
             }
         }
 
-
+        GameObject lifeheart = null;
         BoxCollider2D boxcol = GetComponent<BoxCollider2D>();
         // 충돌판정
         Collider2D hitcol = Physics2D.OverlapBox(this.transform.position, boxcol.size, 0f, PlayerHitMask);
         if (hitcol != null)
         {
             Debug.Log("플레이어 데미지 줌");
+
+            //lifeheart.GetComponent<SpriteRenderer>().size -= 0.16f;          
         }
 
 
