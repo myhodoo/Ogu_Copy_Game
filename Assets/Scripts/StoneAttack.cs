@@ -63,7 +63,7 @@ public class StoneAttack : MonoBehaviour
 
         if (collision.gameObject.tag == "Catapult")
         {
-            this.transform.position = Stonehole.position;
+            this.transform.position = new Vector3(Stonehole.position.x, Stonehole.position.y, 0);
             m_ISAttack = true;
         }
         
