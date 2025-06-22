@@ -99,14 +99,18 @@ public class TargetFollow : MonoBehaviour
 
         
         BoxCollider2D boxcol = GetComponent<BoxCollider2D>();
+        float reducewidth = 0.16f;
         // 충돌판정
         Collider2D hitcol = Physics2D.OverlapBox(this.transform.position, boxcol.size, 0f, PlayerHitMask);
         if (hitcol != null)
         {
             Debug.Log("플레이어 데미지 줌");
-            float heartx = lifeheart.rectTransform.sizeDelta.x;
 
-            heartx -= 0.16f;
+            RectTransform rectTransform = lifeheart.GetComponent<RectTransform>();
+            Vector2 size = rectTransform.sizeDelta;
+
+            size.x = Mathf.Max(0, size.x - reducewidth );
+            rectTransform.sizeDelta = size;
 
             //lifeheart.GetComponent<SpriteRenderer>().size -= 0.16f;          
         }
