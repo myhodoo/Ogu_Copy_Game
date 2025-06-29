@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoneAttack : MonoBehaviour
 {
@@ -162,34 +163,31 @@ public class StoneAttack : MonoBehaviour
                 this.GetComponent<Collider2D>().isTrigger = true;
                 this.rb.velocity = Vector3.up * (speed + 2f);
 
-                //if (true)
-                //{
-                //StartCoroutine(Up_Coroutine());
-                //if (this.transform.position.y > 0f)
-                //{
-                //    StartCoroutine(Down_Coroutine());
-                //}
-                //}
-
-
                 StartCoroutine(StoneThrowCoroutinue());
-
 
             }
 
             m_ISAttack = false;
 
-            
         }
-
-        
 
         if (collision.gameObject.tag == "Catapult")
         {
             this.transform.position = new Vector3(Stonehole.position.x, Stonehole.position.y, 0);
             m_ISAttack = true;
         }
+
         
+
+        //if(collision.gameObject.tag == "Enemy")
+        //{
+        //    RectTransform rectTransform = EnemyFill.GetComponent<RectTransform>();
+        //    Vector2 size = rectTransform.sizeDelta;
+        //
+        //    size.x = Mathf.Max(0, size.x - reducewidth);
+        //    rectTransform.sizeDelta = size;
+        //}
+
     }
 
     public void StoneDisapp()

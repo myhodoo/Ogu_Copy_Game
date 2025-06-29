@@ -9,6 +9,7 @@ TagManager:
   - potion
   - Catapult
   - StoneArrive
+  - stone
   layers:
   - Default
   - TransparentFX

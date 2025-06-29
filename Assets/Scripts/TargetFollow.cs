@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class TargetFollow : MonoBehaviour
 {
-    
+
+    [Header("[디버그모드]")]
+    public bool ISDebugMode = true;
+
     public PlayerMove targetpos;
     public float MoveSpeed = 0.3f;
     public GameObject cursor;
@@ -61,6 +64,11 @@ public class TargetFollow : MonoBehaviour
 
             yield return null;
         }
+
+
+        if (ISDebugMode)
+            yield break;
+
 
 
         // 돌덩어리 떨어지도록 만들기
