@@ -1462,8 +1462,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 835614493}
   ChangeStone: {fileID: -8283354890577564409, guid: 7618001a988453840847076ca4ebc39f, type: 3}
   Stonehole: {fileID: 2145325030}
-  speed: 3
-  upspeed: 0.8
+  speed: 0.8
+  upspeed: 5
   m_ISAttack: 0
 --- !u!1 &1014313468
 GameObject:

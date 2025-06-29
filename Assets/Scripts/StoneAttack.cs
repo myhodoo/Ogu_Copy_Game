@@ -26,67 +26,129 @@ public class StoneAttack : MonoBehaviour
     //던지는 효과를 나타낼 때 scale을 커지고 작게 만들기
     //3.53f ~ 5.59f - scale , -0.32f - ypos
 
-    private float size = 5.59f;
+    private float size = 5.6f;
     public float upspeed;
     private Vector2 originscale;
     private float time;
 
-    IEnumerator Up_Coroutine()
+
+    IEnumerator StoneThrowCoroutinue()
     {
-        if (transform.position.y >= -0.32f)
+
+        Vector3 temporizinsize = new Vector3(originscale.x, originscale.y, originscale.x);
+        this.transform.localScale = temporizinsize;
+
+        Vector3 divsize = new Vector3(upspeed, upspeed, upspeed);
+
+        while (true)
         {
-            while (transform.localScale.x >= size)
+            // 현재 스케일에 스케일변경 값 적용
+            Vector3 changesize = (divsize * Time.deltaTime) + this.transform.localScale;
+
+            // 특정 스케일 이상이되면 유지
+            if (changesize.x >= size)
             {
-                transform.localScale = -(originscale * (1f + time * upspeed));
-                time += Time.deltaTime;
-
-                if (transform.localScale.x <= 3.53f)
-                {
-                    time = 0f;
-                    break;
-                }
-                yield return null;
+                changesize.x = size;
+                changesize.y = size;
+                changesize.z = size;
             }
+            this.transform.localScale = changesize;
 
-            //if(this.transform.position.y > 2.8f)
-            //{
-            //    yield break;
-            //}
-
-        }
-
-
-        while (transform.localScale.x < size)
-        {
-            this.transform.localScale = originscale * (1f + time * upspeed) ;
-            time += Time.deltaTime;
-
-            if(transform.localScale.x >= size)
+            // y축이 0이상이되면 while 종료
+            if(transform.position.y >= 1f)
             {
                 time = 0;
-                break; 
+                break;
             }
+
+            //if (transform.localScale.x >= size)
+            //{
+            //    time = 0;
+            //    break;
+            //}
 
             yield return null;
         }
 
-        
+
+
+        while (true)
+        {
+
+            //transform.localScale = -(originscale * (1f + time * upspeed));
+            //time += Time.deltaTime;
+
+            //if (transform.localScale.x <= 3.53f)
+            //{
+            //    time = 0f;
+            //    break;
+            //}
+            //yield return null;
+
+
+            // 현재 사이즈에서 무조건 점차적으로 작아지게 하기
+            Vector3 changesize = this.transform.localScale - (divsize * Time.deltaTime);
+            // 너무 작아지는것 특정크기로 유지
+            if (changesize.x <= originscale.x)
+            {
+                changesize.x = originscale.x;
+                changesize.y = originscale.y;
+                changesize.z = originscale.x;
+
+                break;
+            }
+
+            this.transform.localScale = changesize;
+
+
+            yield return null;
+        }
+
 
     }
 
+    IEnumerator Up_Coroutine()
+    {
+        while (transform.localScale.x < size)
+        {
+            this.transform.localScale = originscale * (1f + time * upspeed);
+            time += Time.deltaTime;
+
+            if (transform.localScale.x >= size)
+            {
+                time = 0;
+                break;
+            }
+
+            yield return null;
+        }
+    }
+
+    IEnumerator Down_Coroutine()
+    {
+        while (transform.localScale.x >= size)
+        {
+            transform.localScale = -(originscale * (1f + time * upspeed));
+            time += Time.deltaTime;
+
+            if (transform.localScale.x <= 3.53f)
+            {
+                time = 0f;
+                break;
+            }
+            yield return null;
+        }
+    }
 
     public bool m_ISAttack = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
         Debug.Log($"확인 : {collision.name}, {collision.tag}");
         if (collision.gameObject.tag == "potion")
         {
             spriteRenderer.sprite = ChangeStone;
             //this.gameObject.layer = 7;
-            
         }
 
         if (m_ISAttack)
@@ -98,10 +160,21 @@ public class StoneAttack : MonoBehaviour
                 //this.rb.isKinematic = false;
 
                 this.GetComponent<Collider2D>().isTrigger = true;
-                this.rb.velocity = Vector3.up * speed;
+                this.rb.velocity = Vector3.up * (speed + 2f);
+
+                //if (true)
+                //{
+                //StartCoroutine(Up_Coroutine());
+                //if (this.transform.position.y > 0f)
+                //{
+                //    StartCoroutine(Down_Coroutine());
+                //}
+                //}
 
 
-                StartCoroutine(Up_Coroutine());
+                StartCoroutine(StoneThrowCoroutinue());
+
+
             }
 
             m_ISAttack = false;
