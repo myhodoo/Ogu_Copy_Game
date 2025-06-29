@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3930dfe460e4f4c994c90d9c191e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ISDebugMode: 1
+  ISDebugMode: 0
   targetpos: {fileID: 0}
   MoveSpeed: 4
   cursor: {fileID: 591331393}
