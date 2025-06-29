@@ -25,8 +25,6 @@ public class TargetFollow : MonoBehaviour
 
         StartCoroutine(CursorFollow_Coroutine());
 
-        
-
     }
 
 
@@ -97,9 +95,11 @@ public class TargetFollow : MonoBehaviour
             }
         }
 
-        
+
         BoxCollider2D boxcol = GetComponent<BoxCollider2D>();
         float reducewidth = 0.16f;
+
+        
         // 충돌판정
         Collider2D hitcol = Physics2D.OverlapBox(this.transform.position, boxcol.size, 0f, PlayerHitMask);
         if (hitcol != null)
