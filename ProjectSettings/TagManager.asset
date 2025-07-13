@@ -10,6 +10,7 @@ TagManager:
   - Catapult
   - StoneArrive
   - stone
+  - StoneChange
   layers:
   - Default
   - TransparentFX

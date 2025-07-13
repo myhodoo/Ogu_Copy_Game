@@ -11,6 +11,11 @@ public class StoneAttack : MonoBehaviour
     Rigidbody2D rb;
     void Start()
     {
+
+        //GameObject.FindAnyObjectByType<>
+
+
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         
         this.rb = GetComponent<Rigidbody2D>();
@@ -105,7 +110,6 @@ public class StoneAttack : MonoBehaviour
             yield return null;
         }
 
-
     }
 
     IEnumerator Up_Coroutine()
@@ -142,6 +146,7 @@ public class StoneAttack : MonoBehaviour
     }
 
     public bool m_ISAttack = false;
+    public CreateStone createStone;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -150,6 +155,7 @@ public class StoneAttack : MonoBehaviour
         {
             spriteRenderer.sprite = ChangeStone;
             //this.gameObject.layer = 7;
+            gameObject.tag = "StoneChange";
         }
 
         if (m_ISAttack)
@@ -173,7 +179,11 @@ public class StoneAttack : MonoBehaviour
 
         if (collision.gameObject.tag == "Catapult")
         {
+            // 복사된 stone도 Stonehole 위치에서 멈추기 -> 복사된 stone이 stonehole 값이 없음
+            //GameObject clone = createStone.stoneNew();
+
             this.transform.position = new Vector3(Stonehole.position.x, Stonehole.position.y, 0);
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             m_ISAttack = true;
         }
 

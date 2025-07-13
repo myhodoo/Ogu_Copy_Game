@@ -9,7 +9,7 @@ public class EnemyHP : MonoBehaviour
 
     public float Maxhp = 95f;
     public float CurrentHp;
-
+  
 
 
     protected float OneUISize = 0f;
@@ -28,6 +28,7 @@ public class EnemyHP : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
         // 100 - 1.5f
         CurrentHp -= damage;
 
@@ -48,18 +49,19 @@ public class EnemyHP : MonoBehaviour
         //fillsize.x = CurrentHp - damage;
         //rectTransform.sizeDelta = fillsize;
 
-        
-
-        
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "StoneChange")
+        {
+            TakeDamage(20f);
+        }
         Debug.Log($"보스 충돌 : {collision.name}, {collision.tag} ");
         if(collision.gameObject.tag == "stone")
         {
-            TakeDamage(15f);
+            TakeDamage(10f);
         }
     }
 
