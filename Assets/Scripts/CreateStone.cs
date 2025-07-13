@@ -7,7 +7,6 @@ public class CreateStone : MonoBehaviour
 
     public GameObject stone;
     public GameObject potion;
-    public float delaytime = 3f;
 
     public BoxCollider2D RandomCreateCollider; // 생성위치
     public BoxCollider2D IgnoreCreateCollider; // 생성하면 안되는위치
@@ -20,40 +19,50 @@ public class CreateStone : MonoBehaviour
     [SerializeField]
     protected Bounds ignorebounds;
 
-    IEnumerator PotionTime_Coroutine()
-    {
-        yield return new WaitForSeconds(delaytime);
+    
 
-        while (potion.layer == 4)
+    
+
+    
+
+    IEnumerator PotionMake_Coroutine()
+    {
+        while(true)
         {
-            PotionRemove();
+            yield return new WaitForSeconds(10f);
+
+            potionNew();
         }
-        
     }
 
-    void PotionRemove()
+    public void potionNew()
     {
-        Destroy(potion);
+        while (true)
+        {
+            Vector3 minpos = boundssize.min;
+            Vector3 maxpos = boundssize.max;
+
+            float xrandom = Random.Range(minpos.x, maxpos.x);
+            float yrandom = Random.Range(minpos.y, maxpos.y);
+
+
+            Vector3 ranpos = new Vector3(xrandom, yrandom, 0.5f);
+            if (ignorebounds.Contains(ranpos))
+            {
+                continue;
+            }
+
+            GameObject potioncreate = Instantiate(potion);
+            potioncreate.transform.position = ranpos;
+
+            break;
+
+        }
     }
 
     IEnumerator MakeStone_Coroutine()
     {
-        //stoneNew();
-        //float posx = this.transform.position.x;
-        //float posy = this.transform.position.y;
-
-        //while (true)
-        //{
-        //    if (posx == ex_xrandom && posy == ex_yrandom)
-        //    {
-        //        continue;
-        //    }
-
-        //    yield return new WaitForSeconds(3f);
-        //}
-
-
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(3f);
 
@@ -67,13 +76,6 @@ public class CreateStone : MonoBehaviour
     // 랜던함 위치 조건은 범위지정
     // 범윈안에서도 특정 위치에서는 다시 랜덤 조건 적용
 
-    //public Transform Top;
-    //public Transform Right;
-    //public Transform Left;
-    //public Transform Bottom;
-
-
-
     public void stoneNew()
     {
 
@@ -85,11 +87,6 @@ public class CreateStone : MonoBehaviour
 
         //float ex_xrandom = Random.Range(-2.3f, 2.5f);
         //float ex_yrandom = Random.Range(-4.11f, -0.47f);
-
-        //float minx = -2.3f;
-        //float maxx = 2.5f;
-        //float miny = -4.1f;
-        //float maxy = 0.47f;
 
         while(true)
         {
@@ -112,7 +109,6 @@ public class CreateStone : MonoBehaviour
             {
                 continue;
             }
-
                 
             // 스톤 범위안에 있는지 파악용
             if( false)
@@ -134,7 +130,6 @@ public class CreateStone : MonoBehaviour
             }
             
 
-
             GameObject createstone = Instantiate(stone);
             createstone.transform.position = ranpos;// new Vector3(xrandom, yrandom);
             createstone.GetComponent<StoneAttack>().Stonehole = HoleCollider.transform;
@@ -147,9 +142,6 @@ public class CreateStone : MonoBehaviour
             //    continue;
             //}
 
-
-            //GameObject createstone = Instantiate(stone);
-            //createstone.transform.position = new Vector3(xrandom, yrandom);
         }
 
     }
@@ -164,12 +156,20 @@ public class CreateStone : MonoBehaviour
         RandomCreateCollider.enabled = false;
         IgnoreCreateCollider.enabled = false;
         StartCoroutine(MakeStone_Coroutine());
-        StartCoroutine(PotionTime_Coroutine());
+        StartCoroutine(PotionMake_Coroutine());
     }
 
+    void PotionRemove()
+    {
+        //if (potion.layer == 4)
+        //{
+        //    Destroy(potion,3f);
+        //}
+
+    }
 
     void Update()
     {
-        
+        PotionRemove();   
     }
 }

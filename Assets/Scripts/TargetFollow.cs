@@ -27,6 +27,9 @@ public class TargetFollow : MonoBehaviour
         StartCoroutine( time_increase() );
 
         StartCoroutine(CursorFollow_Coroutine());
+        float zpunch = hitpunch.transform.position.z;
+        zpunch = -3.0f;
+        hitpunch.transform.position = new Vector3(hitpunch.transform.position.x, hitpunch.transform.position.y, zpunch);
 
     }
 

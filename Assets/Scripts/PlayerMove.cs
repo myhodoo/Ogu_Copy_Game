@@ -6,7 +6,10 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         m_Animator = GetComponent<Animator>();
-        
+        float zplayer = transform.position.z;
+        zplayer = -2.0f;
+        transform.position = new Vector3(transform.position.x, transform.position.y, zplayer);
+
     }
 
     public float MoveSpeed = 5f;

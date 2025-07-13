@@ -25,14 +25,40 @@ public class KnifeAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log($"트리거 {this.gameObject.tag}, {collision.gameObject.tag}");
-        if (collision.gameObject.tag == "potion")
+        // 기존 방법
+        if ( false )
         {
-            collision.GetComponent<SpriteRenderer>().sprite = ChangeSprite;
-            //spriteRenderer.sprite = ChangeSprite;
-            collision.transform.localScale = new Vector3(5f, 5f, 4.32229996f);
-            collision.gameObject.layer = 4;
-            collision.isTrigger = true;
+            Debug.Log($"트리거 {this.gameObject.tag}, {collision.gameObject.tag}");
+            if (collision.gameObject.tag == "potion")
+            {
+                collision.GetComponent<SpriteRenderer>().sprite = ChangeSprite;
+                //spriteRenderer.sprite = ChangeSprite;
+                collision.transform.localScale = new Vector3(5f, 5f, 4.32229996f);
+
+
+                int layerindex = LayerMask.NameToLayer("Water");
+                collision.gameObject.layer = layerindex;
+
+
+                float zwater = collision.transform.position.z;
+                zwater = 0.6f;
+                collision.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, zwater);
+
+                collision.isTrigger = true;
+
+
+                //GameObject.Destroy(collision.gameObject, 3f);
+            }
         }
+        else
+        {
+            Potion_Com com = collision.GetComponent<Potion_Com>();
+            if (com != null)
+            {
+                com.SetWaterWell();
+            }
+        }
+        
     }
 
 
