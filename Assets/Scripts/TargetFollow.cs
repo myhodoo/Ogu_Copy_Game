@@ -113,7 +113,7 @@ public class TargetFollow : MonoBehaviour
         
         // 충돌판정
         Collider2D hitcol = Physics2D.OverlapBox(this.transform.position, boxcol.size, 0f, PlayerHitMask);
-        if (hitcol != null)
+        if (hitcol != null && ISDebugMode == false)
         {
             Debug.Log("플레이어 데미지 줌");
 

@@ -148,9 +148,58 @@ public class StoneAttack : MonoBehaviour
     public bool m_ISAttack = false;
     public CreateStone createStone;
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //Debug.Log($"스톤 스테이 : {this.name}, {collision.name}, {collision.tag}");
+        if( spriteRenderer.sprite == ChangeStone )
+        {
+            return;
+        }
+
+
+        if (collision.gameObject.tag == "potion")
+        {
+            spriteRenderer.sprite = ChangeStone;
+            //this.gameObject.layer = 7;
+            gameObject.tag = "StoneChange";
+        }
+
+        //if (m_ISAttack)
+        //{
+        //    this.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+
+        //    if (collision.gameObject.tag == "knife")
+        //    {
+        //        //this.rb.isKinematic = false;
+
+        //        this.GetComponent<Collider2D>().isTrigger = true;
+        //        this.rb.velocity = Vector3.up * (speed + 2f);
+
+        //        StartCoroutine(StoneThrowCoroutinue());
+
+        //    }
+
+        //    m_ISAttack = false;
+
+        //}
+
+        //if (collision.gameObject.tag == "Catapult")
+        //{
+        //    // 복사된 stone도 Stonehole 위치에서 멈추기 -> 복사된 stone이 stonehole 값이 없음
+        //    //GameObject clone = createStone.stoneNew();
+
+        //    this.transform.position = new Vector3(Stonehole.position.x, Stonehole.position.y, 0);
+        //    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        //    m_ISAttack = true;
+        //}
+    }
+
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"확인 : {collision.name}, {collision.tag}");
+        Debug.Log($"스톤 확인 : {this.name}, {collision.name}, {collision.tag}");
         if (collision.gameObject.tag == "potion")
         {
             spriteRenderer.sprite = ChangeStone;
@@ -187,16 +236,6 @@ public class StoneAttack : MonoBehaviour
             m_ISAttack = true;
         }
 
-        
-
-        //if(collision.gameObject.tag == "Enemy")
-        //{
-        //    RectTransform rectTransform = EnemyFill.GetComponent<RectTransform>();
-        //    Vector2 size = rectTransform.sizeDelta;
-        //
-        //    size.x = Mathf.Max(0, size.x - reducewidth);
-        //    rectTransform.sizeDelta = size;
-        //}
 
     }
 
