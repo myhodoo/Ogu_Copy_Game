@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,30 +8,52 @@ public class FailScenes : MonoBehaviour
     public Image Failbackground = null;
     public GameObject FailButton = null;
     public TargetFollow m_lifeheart = null;
+
     void Start()
     {
         Failbackground.GetComponent<Image>().enabled = false;
         FailButton.SetActive(false);
         //FailButton.GetComponent<Button>().enabled = false;
     }
-    public void Dead()
-    {
-        if(m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
-        {
-            Failbackground.GetComponent<Image>().enabled = true;
-            FailButton.SetActive(true);
-            //FailButton.GetComponent<Button>().enabled = true;
-        }
+    //public void Dead()
+    //{
+    //    if(m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+    //    {
+    //        Failbackground.GetComponent<Image>().enabled = true;
+    //        FailButton.SetActive(true);
+    //        //FailButton.GetComponent<Button>().enabled = true;
+
+
+    //        Time.timeScale = 0f; 
+    //    }
         
+    //}
+
+    private bool ISDead = false;
+
+    IEnumerator showfailscreen()
+    {
+        Debug.Log("ShowFailScreen ½ÇÇàµÊ");
+        Failbackground.GetComponent<Image>().enabled = true;
+        FailButton.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 0f;
     }
+
 
     public void Retry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("BattleScene");
     }
     
     void Update()
     {
-        Dead();
+        if(!ISDead && m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+        {
+            ISDead = true;
+            StartCoroutine(showfailscreen());
+        }
     }
 }
