@@ -18,9 +18,6 @@ public class CreateStone : MonoBehaviour
     protected Bounds boundssize;
     [SerializeField]
     protected Bounds ignorebounds;
-
-    
-
     
 
     
@@ -142,7 +139,7 @@ public class CreateStone : MonoBehaviour
             //    continue;
             //}
 
-        }
+        } 
 
     }
 

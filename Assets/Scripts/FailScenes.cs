@@ -9,48 +9,43 @@ public class FailScenes : MonoBehaviour
     public GameObject FailButton = null;
     public TargetFollow m_lifeheart = null;
 
+    private bool ISDead = false;
+
     void Start()
     {
         Failbackground.GetComponent<Image>().enabled = false;
         FailButton.SetActive(false);
-        //FailButton.GetComponent<Button>().enabled = false;
+        Time.timeScale = 1f;
     }
-    //public void Dead()
-    //{
-    //    if(m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
-    //    {
-    //        Failbackground.GetComponent<Image>().enabled = true;
-    //        FailButton.SetActive(true);
-    //        //FailButton.GetComponent<Button>().enabled = true;
 
-
-    //        Time.timeScale = 0f; 
-    //    }
-        
-    //}
-
-    private bool ISDead = false;
+    public void Dead()
+    {
+        if (m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+        {
+            Failbackground.GetComponent<Image>().enabled = true;
+            FailButton.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 
     IEnumerator showfailscreen()
     {
-        Debug.Log("ShowFailScreen Ω««‡µ ");
+        Debug.Log("ShowFailScreen Ìò∏Ï∂úÎê®");
         Failbackground.GetComponent<Image>().enabled = true;
         FailButton.SetActive(true);
-
         yield return new WaitForSecondsRealtime(0.1f);
         Time.timeScale = 0f;
     }
-
 
     public void Retry()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("BattleScene");
     }
-    
+
     void Update()
     {
-        if(!ISDead && m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+        if (!ISDead && m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
         {
             ISDead = true;
             StartCoroutine(showfailscreen());

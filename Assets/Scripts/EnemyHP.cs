@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyHP : MonoBehaviour
@@ -38,6 +39,7 @@ public class EnemyHP : MonoBehaviour
         if (CurrentHp <= 0)
         {
             Debug.Log("º¸½º»ç¸Á");
+            SceneManager.LoadScene("ClearScene");   
         }
 
         LinkHpBarSlider.value = CurrentHp;
