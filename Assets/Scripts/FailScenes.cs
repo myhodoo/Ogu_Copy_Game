@@ -18,15 +18,15 @@ public class FailScenes : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Dead()
-    {
-        if (m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
-        {
-            Failbackground.GetComponent<Image>().enabled = true;
-            FailButton.SetActive(true);
-            Time.timeScale = 0f;
-        }
-    }
+    //public void Dead()
+    //{
+    //    if (m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+    //    {
+    //        Failbackground.GetComponent<Image>().enabled = true;
+    //        FailButton.SetActive(true);
+    //        Time.timeScale = 0f;
+    //    }
+    //}
 
     IEnumerator showfailscreen()
     {
@@ -34,7 +34,7 @@ public class FailScenes : MonoBehaviour
         Failbackground.GetComponent<Image>().enabled = true;
         FailButton.SetActive(true);
         yield return new WaitForSecondsRealtime(0.1f);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void Retry()
@@ -45,8 +45,10 @@ public class FailScenes : MonoBehaviour
 
     void Update()
     {
-        if (!ISDead && m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
+        if ( m_lifeheart.lifeheart.rectTransform.sizeDelta.x <= 0)
         {
+            Debug.Log("현재 체력바 길이: " + m_lifeheart.lifeheart.rectTransform.sizeDelta.x);
+
             ISDead = true;
             StartCoroutine(showfailscreen());
         }
